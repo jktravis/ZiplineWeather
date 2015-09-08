@@ -62,9 +62,10 @@ function getWeather(query, units)
                 {
                     if (bgImgs[i].icon[j] === resp.weather[0].icon)
                     {
-                        $('body').css('background', 'url(' +
+                        var body = $('body');
+                        body.css('background', 'url(' +
                             bgImgs[i].image + ') no-repeat');
-                        $('body').css('background-size', 'cover');
+                        body.css('background-size', 'cover');
                     }
                 }
             }
@@ -76,17 +77,31 @@ function getWeather(query, units)
     });
 }
 
-var query = 'q=Orlando,fl';
-var units = '&units=imperial';
+$(document).ready(function()
+{
+    var query = 'q=Orlando,fl';
+    var units = '&units=imperial';
 
-getWeather(query, units);
+    getWeather(query, units);
 
-//TODO: Find out why my button click doesn't work.
-//$('button').click(function ()
-//{
-//    console.log(query);
-//    query = $('input').val().replace(/ /g, '');
-//    console.log(query);
-//    getWeather(query, units);
-//});
+    //TODO: Find out why my button click doesn't work.
+    $('#goButton').click(function ()
+    {
+        console.log(query);
+        query = $('input').val().replace(/ /g, '');
+        console.log(query);
+        getWeather('q=' + query, units);
+    });
 
+    $(document).keypress(function(e)
+    {
+        if (e.which == 13)
+        {
+            // Could be more DRY.
+            console.log(query);
+            query = $('input').val().replace(/ /g, '');
+            console.log(query);
+            getWeather('q=' + query, units);
+        }
+    })
+});
