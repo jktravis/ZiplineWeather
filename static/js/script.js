@@ -5,7 +5,8 @@ function getWeather(query, units)
     var bgImgs = [
         {
             name: 'clear sky',
-            image: 'http://www.weatherstock.com/royalty-free-weather-storm-pictures/Agriculture%20Royalty%20Free%20Pictures/slides/AG-02.JPG',
+            //image: 'http://www.weatherstock.com/royalty-free-weather-storm-pictures/Agriculture%20Royalty%20Free%20Pictures/slides/AG-02.JPG',
+            image: 'https://images.unsplash.com/photo-1433321768402-e8ed97b0324c?q=80&fm=jpg&s=fd1df3a18da9488dee0be9d7f96463f9',
             icon: ['01d', '01n']
         },
         {
@@ -45,11 +46,11 @@ function getWeather(query, units)
         },
         {
             name: 'mist',
-            image: 'http://www.weatherstock.com/royalty-free-weather-storm-pictures/Fog%20Royalty%20Free%20Pictures/slides/FOG-RF-03.JPG',
+            image: 'https://images.unsplash.com/8/carmel.jpg?q=80&fm=jpg&s=edca0d57d1cdb867415eaca4c75924ac',
+            //image: 'http://www.weatherstock.com/royalty-free-weather-storm-pictures/Fog%20Royalty%20Free%20Pictures/slides/FOG-RF-03.JPG',
             icon: ['50d', '50n']
         }
     ];
-
     $.ajax({
         url: 'http://api.openweathermap.org/data/2.5/weather?' + query + units + '&appid=0953e8514c5501d8fdc02af6c04ed2c6',
         method: 'GET',
@@ -87,9 +88,7 @@ $(document).ready(function()
     //TODO: Find out why my button click doesn't work.
     $('#goButton').click(function ()
     {
-        console.log(query);
         query = $('input').val().replace(/ /g, '');
-        console.log(query);
         getWeather('q=' + query, units);
     });
 
@@ -98,9 +97,7 @@ $(document).ready(function()
         if (e.which == 13)
         {
             // Could be more DRY.
-            console.log(query);
             query = $('input').val().replace(/ /g, '');
-            console.log(query);
             getWeather('q=' + query, units);
         }
     })
