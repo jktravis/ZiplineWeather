@@ -51,7 +51,7 @@ function getWeather(query, units)
     ];
 
     $.ajax({
-        url: 'http://api.openweathermap.org/data/2.5/weather?' + query + units,
+        url: 'http://api.openweathermap.org/data/2.5/weather?' + query + units + '&appid=0953e8514c5501d8fdc02af6c04ed2c6',
         method: 'GET',
         dataType: 'json',
         success: function (resp)
