@@ -74,7 +74,7 @@ function getWeather(query, units) {
 
 $(document).ready(function () {
   var query = '';
-  var units = '';
+  var units = '&units=imperial';
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
