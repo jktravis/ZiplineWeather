@@ -1,0 +1,32 @@
+{
+  "name": "zipline-weather",
+  "version": "1.0.0",
+  "description": "FCC Zipline Weather app",
+  "main": "inde.html",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.10.1",
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jktravis/ZiplineWeather.git"
+  },
+  "keywords": [
+    "fcc",
+    "free",
+    "code",
+    "camp",
+    "zipline",
+    "weather"
+  ],
+  "author": "jktravis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jktravis/ZiplineWeather/issues"
+  },
+  "homepage": "https://github.com/jktravis/ZiplineWeather#readme"
+}
