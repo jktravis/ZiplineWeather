@@ -72,6 +72,17 @@ function getWeather(query, units) {
   });
 }
 
+function chooseQueryType(query, units) {
+  if (query.match(/\d{5}/)) {
+    getWeather('zip=' + query + ',us', units);
+  }
+  else {
+    getWeather('q=' + query, units);
+  }
+    
+  
+}
+
 $(document).ready(function () {
   var query = '';
   var units = '&units=imperial';
@@ -83,17 +94,17 @@ $(document).ready(function () {
       getWeather(query, units);
     });
   }
-
+  
   $('#goButton').click(function () {
     query = $('input').val().replace(/ /g, '');
-    getWeather('q=' + query, units);
+    chooseQueryType(query, units);
   });
 
   $(document).keypress(function (e) {
     if (e.which == 13) {
       // Could be more DRY.
       query = $('input').val().replace(/ /g, '');
-      getWeather('q=' + query, units);
+      chooseQueryType(query, units);
     }
   })
 });
